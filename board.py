@@ -122,6 +122,9 @@ class Board:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        break
             i, j = path.pop()
             self.grid[j][i].mark_cell(2)
             self.all_squares(True, BLUEISH_COLOR)

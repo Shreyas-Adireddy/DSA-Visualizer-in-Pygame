@@ -80,7 +80,7 @@ def main():
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_CAPSLOCK:
+                if event.key == pygame.K_LCTRL:
                     placing = not placing
                     bit = 0 if bit else 1
                     color = hashMap[bit]
