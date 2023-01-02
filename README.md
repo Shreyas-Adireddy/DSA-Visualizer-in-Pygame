@@ -1,2 +1,4 @@
 # Pathfinding
-DSA Visualizer with the following pathfinding algorithms
+Controls:
+MOUSEWHEEL: Too zoom in and out
+
