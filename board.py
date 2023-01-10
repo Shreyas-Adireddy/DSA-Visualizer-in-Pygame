@@ -25,10 +25,22 @@ class Board:
         pygame.display.update()
 
     def move(self, shift):
+        x, y = self.get_board_corner()
+        while x + shift[0] > 0:
+            shift[0] -= 1
+        while y + shift[1] > 0:
+            shift[1] -= 1
+        while x + shift[0] < -32*self.get_cell_len():
+            shift[0] += 1
+        while y + shift[1] < -32*self.get_cell_len():
+            shift[1] += 1
         for i in range(self.row):
             for j in range(self.col):
                 self.grid[i][j].change_pos(*shift)
         self.all_squares(instant=True, color=self.colour)
+
+    def get_board_corner(self):
+        return self.grid[0][0].cordx, self.grid[0][0].cordy
 
     def zoom_in(self):
         if self.grid[0][0].side_len < 60:
@@ -37,7 +49,7 @@ class Board:
                     cls.change_width(1)
 
     def zoom_out(self):
-        if self.grid[0][0].side_len > 10:
+        if self.grid[0][0].side_len > 20:
             for row in self.grid:
                 for cls in row:
                     cls.change_width(-1)

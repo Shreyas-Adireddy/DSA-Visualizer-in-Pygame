@@ -1,6 +1,7 @@
 from constants import *
 import pygame
 
+
 class Cell(pygame.sprite.Sprite):
     def __init__(self, screen, row, col, mark=0):
         self.screen = screen
@@ -32,10 +33,11 @@ class Cell(pygame.sprite.Sprite):
             pygame.draw.rect(self.screen, GREY_COLOR, sqr, 0, border_radius=2)
         if not instant:
             pygame.display.update()
+            pygame.time.delay(1)
 
     def change_pos(self, x, y):
-        self.cordx += x if self.cordx > -100 else 0
-        self.cordy += y if self.cordy > -100 else 0
+        self.cordx += x #if self.cordx > -100 else 0
+        self.cordy += y #if self.cordy > -100 else 0
 
     def change_width(self, chg):
         self.side_len += chg
@@ -48,4 +50,3 @@ class Cell(pygame.sprite.Sprite):
 
     def get_mark(self):
         return self.mark
-

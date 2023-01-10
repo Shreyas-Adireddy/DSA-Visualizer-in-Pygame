@@ -110,8 +110,9 @@ def main():
                 elif event.button == 5:
                     b.zoom_out()
             if event.type == pygame.MOUSEMOTION:
-                shift = pygame.mouse.get_rel()
-                if dragging: b.move(shift)
+                shift = list(pygame.mouse.get_rel())
+                if dragging:
+                    b.move(shift)
             if event.type == pygame.MOUSEBUTTONUP and not placing:
                 dragging = False
                 if event.button == 1 and start:
